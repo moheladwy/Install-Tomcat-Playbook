@@ -1,0 +1,11 @@
+---
+- name: Copy Tomcat on target machine
+  copy:
+      src: /home/eladwy/DevOps/ansible/roles/download_packages/templates/apache-tomcat-10.1.26.tar.gz
+      dest: /tmp/
+
+- name: Extract Tomcat on target machine
+  unarchive:
+      src: /tmp/apache-tomcat-10.1.26.tar.gz
+      dest: /opt/
+      remote_src: yes

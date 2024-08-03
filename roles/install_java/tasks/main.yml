@@ -1,0 +1,20 @@
+---
+- name: Copy Java to target machine
+  copy:
+      src: /home/eladwy/DevOps/ansible/roles/download_packages/templates/jdk-22_linux-x64_bin.tar.gz
+      dest: /tmp/
+
+- name: Extract Java on target machine
+  unarchive:
+      src: /tmp/jdk-22_linux-x64_bin.tar.gz
+      dest: /opt/
+      remote_src: yes
+
+- name: Configure Java on target machine
+  shell: |
+      ln -sf /opt/jdk-22/bin/java /usr/bin/java
+      touch /etc/profile.d/jdk.sh
+      echo 'export JAVA_HOME=/opt/jdk-22' > /etc/profile.d/jdk.sh
+      echo 'export PATH=$JAVA_HOME/bin:$PATH' >> /etc/profile.d/jdk.sh
+      chmod +x /etc/profile.d/jdk.sh
+      source /etc/profile.d/jdk.sh

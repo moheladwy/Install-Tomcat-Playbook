@@ -1,0 +1,5 @@
+---
+- name: Clean Up temporary files on target machines
+  file: 
+    path: /tmp/jdk-22_linux-x64_bin.tar.gz
+    state: absent

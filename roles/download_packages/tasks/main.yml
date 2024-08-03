@@ -1,0 +1,14 @@
+---
+- name: Download Java on control machine
+  get_url:
+      url: <https://download.oracle.com/java/22/latest/jdk-22_linux-x64_bin.tar.gz>
+      dest: /home/eladwy/DevOps/ansible/roles/download_packages/templates/jdk-22_linux-x64_bin.tar.gz
+  delegate_to: localhost
+  run_once: true
+
+- name: Download Tomcat on control machine
+  get_url:
+      url: <https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.26/bin/apache-tomcat-10.1.26.tar.gz>
+      dest: /home/eladwy/DevOps/ansible/roles/download_packages/templates/apache-tomcat-10.1.26.tar.gz
+  delegate_to: localhost
+  run_once: true

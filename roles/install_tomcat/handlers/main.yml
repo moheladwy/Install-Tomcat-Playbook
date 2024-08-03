@@ -1,0 +1,5 @@
+---
+- name: Clean Up Tomcat files on target machine
+  file:
+      path: /tmp/apache-tomcat-10.1.26.tar.gz
+      state: absent
